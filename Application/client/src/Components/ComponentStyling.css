@@ -1,0 +1,76 @@
+/* CredentialForm.jsx styling */
+
+* {
+    box-sizing: border-box;
+    font-family: Verdana;
+}
+
+.credForm {
+    width: 160%;
+    border: 2px solid #10a37f;
+    transform: translateX(-18.5%);
+    padding-bottom: 120px;
+}
+
+.formTitle {
+    color: white;
+    font-weight: 600;
+}
+
+
+/* CustomBackground.jsx styling */
+
+.customBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    background-image: linear-gradient(125deg, #000000, #084d3c, #10a37f);
+    z-index: -1;
+}
+
+/* CustomButton.jsx styling*/
+.customButton {
+    width: 95%;
+    height: 42.5px;
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    font-size: x-large;
+    font-weight: 900;
+}
+
+
+/* InputField.jsx styling */
+
+.inputField {
+}
+
+.inputField input {
+    width: 95%;
+    height: 42.5px;
+    border: 2px solid white;
+    outline: none;
+    color: white;
+    background: transparent;
+    padding-left: 10px;
+}
+
+.inputField input:focus ~ label,
+.inputField input:valid ~ label {
+    transform:  translateX(6%) translateY(-360%);
+    font-size: xx-small;
+    opacity: 0;
+}
+
+.inputField label {
+    display: block;
+    color: white;
+    text-align: left;
+    transform: translateY(-160%) translateX(6%);
+    font-size: small;
+    pointer-events: none;
+    transition: 0.5s;
+}
