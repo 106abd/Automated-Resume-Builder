@@ -6,9 +6,12 @@
 }
 
 .credForm {
-    width: 160%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(300px, 90%);
     border: 2px solid #10a37f;
-    transform: translateX(-18.5%);
     padding-bottom: 120px;
 }
 
@@ -25,7 +28,9 @@
     top: 0;
     left: 0;
     width: 100vw;
+    width: 100dvw;
     height: 100vh;
+    height: 100dvh;
     background-color: black;
     background-image: linear-gradient(125deg, #000000, #084d3c, #10a37f);
     z-index: -1;
@@ -46,6 +51,8 @@
 /* InputField.jsx styling */
 
 .inputField {
+    position: relative;
+    margin-bottom: 5%;
 }
 
 .inputField input {
@@ -55,21 +62,22 @@
     outline: none;
     color: white;
     background: transparent;
-    padding-left: 10px;
 }
 
 .inputField input:focus ~ label,
 .inputField input:valid ~ label {
-    transform:  translateX(6%) translateY(-360%);
-    font-size: xx-small;
-    opacity: 0;
+    transform: translateY(-130%);
+    font-size: x-small;
+    background-color: #084d3c;
+    border-radius: 4px;
 }
 
 .inputField label {
-    display: block;
+    display: inline;
+    position: absolute;
+    top: 28%;
+    left: 5%;
     color: white;
-    text-align: left;
-    transform: translateY(-160%) translateX(6%);
     font-size: small;
     pointer-events: none;
     transition: 0.5s;
