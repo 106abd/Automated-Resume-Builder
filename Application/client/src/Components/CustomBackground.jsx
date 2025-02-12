@@ -2,7 +2,7 @@ import React from 'react'
 
 function CustomBackground() {
     return (
-        <div className='customBackground' />
+        <div className='customBackground'></div>
     )
 }
 

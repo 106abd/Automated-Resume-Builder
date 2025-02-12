@@ -1,17 +1,16 @@
 import React from 'react'
-import CredentialsForm from '../Components/CredentialsForm'
 import CustomBackground from '../Components/CustomBackground'
+import CredentialsForm from '../Components/CredentialsForm'
 import Navbar from '../Components/Navbar'
 
-
-function Login() {
+function SignUp() {
     return (
         <div>
             <CustomBackground />
-            <Navbar lastChildAction={"Sign Up"}/>
-            <CredentialsForm formTitle={"LOGIN"}/>
+            <Navbar lastChildAction={"Login"}/>
+            <CredentialsForm formTitle={"SIGN UP"} />
         </div>
     )
 }
 
-export default Login
+export default SignUp
