@@ -2,12 +2,14 @@ import './App.css'
 import Login from './Pages/Login'
 import './Components/ComponentStyling.css'
 import SignUp from './Pages/SignUp'
+import Builder from './Pages/Builder'
 
 function App() {
   return (
     <>
-      <Login />
+      {/* <Login /> */}
       {/* <SignUp /> */}
+      <Builder />
       
     </>
   )

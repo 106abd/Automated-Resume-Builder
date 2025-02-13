@@ -18,7 +18,7 @@ function CredentialsForm({formTitle}) {
 
             <CustomButton ButtonType={"submit"} DisplayText={"CONTINUE"}/>
 
-            <a id='formSkip'>Continue without an account</a>
+            <a className='formSkip'>Continue without an account</a>
         </form>
     )
 }
