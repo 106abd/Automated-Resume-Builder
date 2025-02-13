@@ -1,3 +1,44 @@
+/* Chatbox.jsx styling */
+.boxContainer {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    width: 35vw;
+    height: 73vh;
+    background-color: white;
+    border: 4px solid #10a37f;
+}
+
+.chatBox {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 85%;
+    overflow-y: scroll;
+}
+
+.userInput {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 15%;
+    resize: none;
+    background-color: rgb(16, 162, 126, 0.2);
+    border-top: 4px solid rgb(16, 162, 126, 1);
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+}
+
+.userInput:focus {
+    outline: none;
+}
+
+
 /* CredentialForm.jsx styling */
 
 * {
@@ -20,7 +61,7 @@
     font-weight: 600;
 }
 
-#formSkip {
+.formSkip {
     display: block;
     position: relative;
     color: white;
@@ -29,7 +70,7 @@
     transition: 0.25s;
 }
 
-#formSkip:hover {
+.formSkip:hover {
     color:rgb(157, 255, 0)
 }
 

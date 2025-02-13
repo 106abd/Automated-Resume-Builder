@@ -1,6 +1,6 @@
 import './App.css'
-import Login from './Pages/Login'
 import './Components/ComponentStyling.css'
+import Login from './Pages/Login'
 import SignUp from './Pages/SignUp'
 import Builder from './Pages/Builder'
 

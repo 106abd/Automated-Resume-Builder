@@ -1,8 +1,8 @@
 import React from 'react'
 
-function InputField({inputType, labelText}) {
+function InputField({identifier, inputType, labelText}) {
     return (
-        <div className='inputField'>
+        <div className='inputField' id={identifier}>
             <input type={inputType} required/>
             <label>{labelText}</label>
         </div>
