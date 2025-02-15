@@ -1,8 +1,8 @@
 import React from 'react'
 
-function CustomButton({ButtonType, DisplayText}) {
+function CustomButton({Identifier, ButtonType, DisplayText}) {
     return (
-        <button className='customButton' type={ButtonType}>
+        <button className='customButton' id={Identifier} type={ButtonType}>
             {DisplayText}
         </button>
     )

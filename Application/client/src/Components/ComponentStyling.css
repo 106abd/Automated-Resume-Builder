@@ -1,3 +1,31 @@
+/* BuilderTools.jsx styling*/
+.builderTools {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+.builderTools div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.builderTools div button{
+    margin-right: 15px;
+}
+
+.builderTools div button:first-child {
+    position: absolute;
+    left: 20px;
+}
+
+.builderTools div button:last-child {
+    margin-right: 0;
+}
+
 /* Chatbox.jsx styling */
 .boxContainer {
     display: flex;
@@ -6,8 +34,6 @@
     justify-content: center;
     position: absolute;
     top: 100px;
-    left: 20px;
-    width: 35vw;
     height: 73vh;
     background-color: white;
     border: 4px solid #10a37f;
@@ -19,6 +45,11 @@
     width: 100%;
     height: 85%;
     overflow-y: scroll;
+}
+
+#chatContainer {
+    left: 20px;
+    width: 45vw;
 }
 
 .userInput {
@@ -74,6 +105,10 @@
     color:rgb(157, 255, 0)
 }
 
+#formSubmission {
+    width: 95%;
+}
+
 /* CustomBackground.jsx styling */
 
 .customBackground {
@@ -92,7 +127,6 @@
 
 /* CustomButton.jsx styling*/
 .customButton {
-    width: 95%;
     height: 42.5px;
     border: 2px solid #10a37f;
     color: white;
@@ -188,4 +222,17 @@
     align-items: center;
     margin: 0;
     padding: 0;
+}
+
+
+/* Viewport.jsx*/
+#viewportContainer {
+    right: 20px;
+    width: 50vw;
+}
+
+.viewportRender {
+    width: 100%;
+    height: 100%;
+    border: none;
 }

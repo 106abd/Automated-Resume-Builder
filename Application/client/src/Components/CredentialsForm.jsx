@@ -16,7 +16,7 @@ function CredentialsForm({formTitle}) {
             <InputField inputType={'text'} labelText={'Username'}/>
             <InputField inputType={'password'} labelText={'Password'}/>
 
-            <CustomButton ButtonType={"submit"} DisplayText={"CONTINUE"}/>
+            <CustomButton Identifier={'formSubmission'} ButtonType={'submit'} DisplayText={'CONTINUE'}/>
 
             <a className='formSkip'>Continue without an account</a>
         </form>
