@@ -8,7 +8,7 @@ function Login() {
     return (
         <div>
             <CustomBackground />
-            <Navbar lastChildAction={"Sign Up"}/>
+            <Navbar lastChildAction={"Sign Up"} lastChildPath={'/signup'}/>
             <CredentialsForm formTitle={"LOGIN"}/>
         </div>
     )

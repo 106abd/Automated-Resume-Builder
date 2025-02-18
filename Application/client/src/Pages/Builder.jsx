@@ -9,7 +9,7 @@ function Builder() {
     return (
         <div>
             <CustomBackground />
-            <Navbar lastChildAction={"Logout"}/>
+            <Navbar lastChildAction={'Logout'} lastChildPath={'/'}/>
             <Chatbox />
             <Viewport />
             <BuilderTools />

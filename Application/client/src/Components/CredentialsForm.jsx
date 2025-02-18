@@ -1,10 +1,20 @@
-import React, {} from 'react'
+import React, {useEffect, useRef} from 'react'
+import { Link } from 'react-router-dom'
 import InputField from './InputField'
 import CustomButton from './CustomButton'
 
 
 
 function CredentialsForm({formTitle}) {
+
+    const focusInput = useRef(null)
+
+    useEffect(() => {
+        
+        // Focuses the currently referenced InputField
+        focusInput.current.focus()
+
+    }, [])
 
     return (
         <form className='credForm'>
@@ -13,12 +23,12 @@ function CredentialsForm({formTitle}) {
                 <h1 className='formTitle'>{formTitle}</h1>
             </header>
 
-            <InputField inputType={'text'} labelText={'Username'}/>
+            <InputField inputType={'text'} labelText={'Username'} ref={focusInput}/>
             <InputField inputType={'password'} labelText={'Password'}/>
 
             <CustomButton Identifier={'formSubmission'} ButtonType={'submit'} DisplayText={'CONTINUE'}/>
 
-            <a className='formSkip'>Continue without an account</a>
+            <Link className='formSkip' to='/builder'>Continue without an account</Link>
         </form>
     )
 }

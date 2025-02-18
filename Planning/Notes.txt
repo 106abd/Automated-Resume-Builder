@@ -1,0 +1,4 @@
+Possible states:
+- Background flicker
+- Logged In/Out
+- Data fetching
