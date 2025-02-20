@@ -120,8 +120,40 @@
     height: 100vh;
     height: 100dvh;
     background-color: black;
-    background-image: linear-gradient(125deg, #000000, #084d3c, #10a37f);
     z-index: -1;
+    overflow: hidden;
+}
+
+.customBackground::before,
+.customBackground::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(125deg, #000000, #084d3c, #10a37f);
+}
+
+.customBackground::after {
+    background-image: linear-gradient(135deg, #000000, #17745d, #18b18b);
+    opacity: 0;
+    animation: gradientFlicker 20s ease infinite;
+}
+
+
+@keyframes gradientFlicker {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 
@@ -167,14 +199,14 @@
     transform: translateY(-130%);
     font-size: x-small;
     background-color: #084d3c;
-    border-radius: 4px;
 }
 
 .inputField label {
     display: inline;
     position: absolute;
     top: 28%;
-    left: 5%;
+    left: 4%;
+    padding: 0 5px;
     color: white;
     font-size: small;
     pointer-events: none;
