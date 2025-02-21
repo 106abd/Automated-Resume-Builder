@@ -1,4 +1,1 @@
-Possible states:
-- Background flicker
-- Logged In/Out
-- Data fetching
+CMD PostgreSQL access - C:\Program Files\PostgreSQL\16\bin

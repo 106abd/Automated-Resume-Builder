@@ -18,6 +18,7 @@
   "homepage": "https://github.com/106abd/Automated-Resume-Builder#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "pg": "^8.13.3"
   }
