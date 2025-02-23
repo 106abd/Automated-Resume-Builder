@@ -2,6 +2,7 @@
 const cors = require('cors') // Cross-Origin Resource Sharing module
 const dotenv = require('dotenv') // Dotenv (.env) processing module
 const express = require('express') //Express.JS module
+const {pool} = require('./dbPool') // Access the PostgreSQL 'Pool' object from dbPool.js
 
 // Initialization methods
 const app = express() // Create Express app
