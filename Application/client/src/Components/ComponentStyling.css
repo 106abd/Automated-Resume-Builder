@@ -85,6 +85,20 @@
     width: min(300px, 90%);
     border: 2px solid #10a37f;
     padding-bottom: 120px;
+
+    animation: presentForm 1s ease 0s 1 normal forwards;
+}
+
+@keyframes presentForm {
+    0% {
+        opacity: 0;
+        top: 43%;
+    }
+
+    100% {
+        opacity: 1;
+        top: 50%;
+    }
 }
 
 .formTitle {
@@ -138,11 +152,11 @@
 .customBackground::after {
     background-image: linear-gradient(135deg, #000000, #17745d, #18b18b);
     opacity: 0;
-    animation: gradientFlicker 20s ease infinite;
+    animation: gradientTransition 20s ease infinite;
 }
 
 
-@keyframes gradientFlicker {
+@keyframes gradientTransition {
     0% {
         opacity: 0;
     }
@@ -244,6 +258,11 @@
 .navbar li:first-child a{
     font-weight: bolder;
     font-size: clamp(20px, 3.4vw, 4vw);
+}
+
+.navbar li:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
 }
 
 .navbar ul {

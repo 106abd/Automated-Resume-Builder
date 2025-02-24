@@ -4,9 +4,11 @@ const dotenv = require('dotenv') // Dotenv (.env) processing module
 const express = require('express') //Express.JS module
 const {pool} = require('./dbPool') // Access the PostgreSQL 'Pool' object from dbPool.js
 
+
 // Initialization methods
 const app = express() // Create Express app
 dotenv.config() // Automate dotenv configurations processing
+
 
 // Middleware (run/use the following code everytime before a request/response process occurs)
 app.use(cors()) // Use cors to provide permissions to request origin addresses and permissible HTTP commands
