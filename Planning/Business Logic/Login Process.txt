@@ -1,0 +1,7 @@
+< LOGIN PROCESS >
+
+The user enters their information in the login form. When they click submit, the information is sent to the server. When the server recieves 
+the client request, it queries the database for the user and their password. If the database returns an empty set of rows (no username match), the 
+server sends the client an invalid user/password message. If the database returns a row (user found), the server checks if the passwords match. 
+If they do not match, the server sends the client an invalid user/password message. If the passwords do match, the server sends the client a 
+successful login message.

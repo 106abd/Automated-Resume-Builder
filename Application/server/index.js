@@ -15,6 +15,22 @@ app.use(cors()) // Use cors to provide permissions to request origin addresses a
 app.use(express.json()) // Automate request body data stream chunk collection and parsing to JSON notation
 
 
+// ENDPOINTS
+app.post('/debug', async(request, response) => {
+
+    try {
+        console.log(request.body)
+        response.json('Successfully connected to server.')
+        console.log('Successul client connection!')
+        console.log('----------------------------')
+        console.log('----------------------------')
+    } catch (error) {
+        console.log(error.message)
+    }
+
+})
+
+
 // Run express app on Node.JS' built-in HTTP Module server
 const serverPort = process.env.SERVER_PORT
 app.listen(serverPort, () => {
