@@ -3,6 +3,7 @@ const cors = require('cors') // Cross-Origin Resource Sharing module
 const dotenv = require('dotenv') // Dotenv (.env) processing module
 const express = require('express') //Express.JS module
 const {pool} = require('./dbPool') // Access the PostgreSQL 'Pool' object from dbPool.js
+const debugRoutes = require('./Routes/DebugRoutes')
 
 
 // Initialization methods
@@ -15,20 +16,8 @@ app.use(cors()) // Use cors to provide permissions to request origin addresses a
 app.use(express.json()) // Automate request body data stream chunk collection and parsing to JSON notation
 
 
-// ENDPOINTS
-app.post('/debug', async(request, response) => {
-
-    try {
-        console.log(request.body)
-        response.json('Successfully connected to server.')
-        console.log('Successul client connection!')
-        console.log('----------------------------')
-        console.log('----------------------------')
-    } catch (error) {
-        console.log(error.message)
-    }
-
-})
+// Middleware ENDPOINTS
+app.use('/debug', debugRoutes)
 
 
 // Run express app on Node.JS' built-in HTTP Module server
