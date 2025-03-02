@@ -3,7 +3,7 @@ CREATE DATABASE automated_resume_builder_database; -- Create the database
 CREATE TABLE users( -- Create 'users' table
     user_id SERIAL PRIMARY KEY, -- Give every user a unique ID number
     user_name VARCHAR(20) UNIQUE NOT NULL,
-    user_password VARCHAR(40) NOT NULL
+    user_password TEXT NOT NULL
 );
 
 CREATE TABLE resumes( -- Create 'users' table

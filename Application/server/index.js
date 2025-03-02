@@ -2,8 +2,8 @@
 const cors = require('cors') // Cross-Origin Resource Sharing module
 const dotenv = require('dotenv') // Dotenv (.env) processing module
 const express = require('express') //Express.JS module
-const {pool} = require('./dbPool') // Access the PostgreSQL 'Pool' object from dbPool.js
 const debugRoutes = require('./Routes/DebugRoutes')
+const usersRoutes = require('./Routes/UsersRoutes')
 
 
 // Initialization methods
@@ -18,6 +18,7 @@ app.use(express.json()) // Automate request body data stream chunk collection an
 
 // Middleware ENDPOINTS
 app.use('/debug', debugRoutes)
+app.use('/users', usersRoutes)
 
 
 // Run express app on Node.JS' built-in HTTP Module server

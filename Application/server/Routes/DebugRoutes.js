@@ -9,8 +9,8 @@ router.post('/', async(request, response) => {
 
     try {
         console.log(request.body)
-        response.json('Successfully connected to server.')
-        console.log('Successul client connection!')
+        response.json('Successfully connected to server! - Debug')
+        console.log('Successul client connection! - Debug')
         console.log('----------------------------')
         console.log('----------------------------')
     } catch (error) {
