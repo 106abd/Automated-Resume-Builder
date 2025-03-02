@@ -15,7 +15,8 @@ function generateJWT(user_id) {
     }
 
     // Hide client information by encrypting it with a private key (signing it)
-    jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: 60 * 60}) // Measured in seconds thus 60 * 60, can also use "'1hr'"
+    const authToken = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: 60 * 60}) // Measured in seconds thus 60 * 60, can also use "'1hr'"
+    return authToken
 }
 
 

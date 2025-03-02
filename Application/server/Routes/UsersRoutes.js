@@ -53,6 +53,10 @@ router.post('/login', async(request, response) => {
             response.status(401).json({message: 'Invalid username. Please try again.'})
         }
 
+        console.log('Login transaction success.')
+        console.log('--------------------------')
+        console.log('--------------------------')
+
     } catch (error) {
         console.log(error)
         response.status(500).json({message: 'Server error.'})
@@ -82,7 +86,9 @@ router.post('/signup', async(request, response) => {
             response.status(401).json({message: 'Username already taken. Please try a different username.'})
         }
         
-        console.log(userData)
+        console.log('Sign up transaction success.')
+        console.log('--------------------------')
+        console.log('--------------------------')
 
     } catch (error) {
         console.log(error.message)
