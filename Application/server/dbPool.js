@@ -1,7 +1,12 @@
 const Pool = require('pg').Pool // Manages a pool of database connections, allowing efficient handling of multiple concurrent requests
+const dotenv = require('dotenv') // Dotenv (.env) processing module
+
+
+// Initialization methods
+dotenv.config() // Automate dotenv configurations processing
+
 
 // Creating the new pool instance
-console.log(process.env.DB_USERNAME, process.env.DB_PASSWORD, )
 const pool = new Pool({
     user: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
