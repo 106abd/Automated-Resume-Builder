@@ -1,7 +1,7 @@
 // Module Imports
 const bcrypt = require('bcrypt')
 const express = require('express') //Express.JS module
-const generateJWT = require('../jwtGenerator')
+const generateJWT = require('../Middleware/Utility/jwtGenerator')
 const pool = require('../dbPool') // Access the PostgreSQL 'Pool' object from dbPool.js
 
 // Create a router object instead of app
