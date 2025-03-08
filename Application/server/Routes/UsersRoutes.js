@@ -1,8 +1,12 @@
 // Module Imports
 const bcrypt = require('bcrypt')
 const express = require('express') //Express.JS module
+const authorizeUser = require('../Middleware/Auth/jwtAuthorization')
 const generateJWT = require('../Middleware/Utility/jwtGenerator')
 const pool = require('../dbPool') // Access the PostgreSQL 'Pool' object from dbPool.js
+const validifyData = require('../Middleware/Utility/validifyData')
+
+
 
 // Create a router object instead of app
 const router = express.Router()
@@ -24,7 +28,17 @@ router.post('/', async(request, response) => {
 })
 
 
-router.post('/login', async(request, response) => {
+router.get('/authorize', authorizeUser, async(request, response) => {
+    try {
+        response.status(200).json(true)
+    } catch (error) {
+        console.log(error.message)
+        response.status(500).json({message: 'Server error.'})
+    }
+})
+
+
+router.post('/login', validifyData, async(request, response) => {
     try {
         const {username, password} = request.body // Retrieve username and password from request body
         const userData = await pool.query('SELECT * FROM users where user_name = $1', [username]) // Query to check if the user exists or not
@@ -39,7 +53,7 @@ router.post('/login', async(request, response) => {
             if (validPassword) {
                 
                 // Obtaining the user's ID and generating a JWT auth token with it 
-                const userID = userData.rows.user_id
+                const userID = userData.rows[0].user_id
                 const authToken = generateJWT(userID)
 
                 response.status(200).json({message: 'Login Successful.', token: authToken})
@@ -64,7 +78,7 @@ router.post('/login', async(request, response) => {
 })
 
 
-router.post('/signup', async(request, response) => {
+router.post('/signup', validifyData, async(request, response) => {
 
     try {
         
