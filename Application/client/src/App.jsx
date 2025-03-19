@@ -15,7 +15,7 @@ function App() {
       <HashRouter>
         <Routes>
           <Route exact path='/' element={<Login authToken={authToken} setAuthToken={setAuthToken}/>}/>
-          <Route exact path='/signup' element={<SignUp authToken={authToken} setAuthToken={setAuthToken}/>}/>
+          <Route exact path='/signup' element={<SignUp />}/>
           <Route exact path='/builder' element={<Builder authToken={authToken} setAuthToken={setAuthToken}/>}/>
         </Routes>
       </HashRouter>

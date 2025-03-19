@@ -1,7 +1,15 @@
 import React, {useEffect} from 'react'
+import { useNavigate } from 'react-router-dom'
 import CredentialsForm from '../Components/CredentialsForm'
 import CustomBackground from '../Components/CustomBackground'
 import Navbar from '../Components/Navbar'
+
+
+const checkAuthStatus = (authToken, pageRedirect) => {
+    if (authToken !== '') {
+        pageRedirect('/builder')
+    }
+}
 
 
 const serverConnectionDebug = async() => {
@@ -22,8 +30,11 @@ const serverConnectionDebug = async() => {
 
 function Login({authToken, setAuthToken}) {
 
+    const pageRedirect = useNavigate()
+
     useEffect(() => {
         serverConnectionDebug()
+        checkAuthStatus(authToken, pageRedirect)
     }, [])
 
     return (

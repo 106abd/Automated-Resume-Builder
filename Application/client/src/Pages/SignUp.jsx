@@ -3,7 +3,7 @@ import CustomBackground from '../Components/CustomBackground'
 import CredentialsForm from '../Components/CredentialsForm'
 import Navbar from '../Components/Navbar'
 
-function SignUp({authToken, setAuthToken}) {
+function SignUp() {
     return (
         <div>
             <CustomBackground />
