@@ -6,7 +6,7 @@ import Navbar from '../Components/Navbar'
 
 const serverConnectionDebug = async() => {
     try {
-        const serverResponse = await fetch(`${import.meta.env.VITE_SERVER_API_ADDRESS}/debug`,{
+        const serverResponse = await fetch(`${import.meta.env.VITE_SERVER_API_ADDRESS}/users`,{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({message: 'Client Request Received!'})
@@ -20,7 +20,7 @@ const serverConnectionDebug = async() => {
 }
 
 
-function Login() {
+function Login({authToken, setAuthToken}) {
 
     useEffect(() => {
         serverConnectionDebug()
@@ -30,7 +30,7 @@ function Login() {
         <div>
             <CustomBackground />
             <Navbar lastChildAction={"Sign Up"} lastChildPath={'/signup'}/>
-            <CredentialsForm formTitle={"LOGIN"}/>
+            <CredentialsForm formTitle={"LOGIN"} authToken={authToken} setAuthToken={setAuthToken}/>
         </div>
     )
 }

@@ -5,7 +5,7 @@ import Chatbox from '../Components/Chatbox'
 import Viewport from '../Components/Viewport'
 import BuilderTools from '../Components/BuilderTools'
 
-function Builder() {
+function Builder({authToken, setAuthToken}) {
     return (
         <div>
             <CustomBackground />

@@ -18,7 +18,7 @@ const reducer = (state, action) => {
 }
 
 
-function CredentialsForm({formTitle}) {
+function CredentialsForm({formTitle, authToken, setAuthToken}) {
 
     // Initialize hooks
     const focusInput = useRef(null) // For focusing on DOM
@@ -61,11 +61,16 @@ function CredentialsForm({formTitle}) {
                 console.log(jsonData)
     
                 if (serverResponse.ok) {
+
+                    if (jsonData.token) {
+                        setAuthToken(jsonData.token)
+                    }
+
                     const {action, args} = formTitleData[formTitle]
                     action(...args)
 
                 } else {
-                    console.error(`Server Error: ${serverResponse.status}`)
+                    console.error(`Server Error Logged Status Code: ${serverResponse.status}`)
                 }
         
             } catch (error) {
@@ -73,7 +78,7 @@ function CredentialsForm({formTitle}) {
             }
     
         } else {
-            console.error('The CredentialsForm component must have prop "formTitle" equal to "LOGIN" or "SIGN UP". Edit sendFormData function for extra form titles.')
+            console.error('The CredentialsForm component must have prop "formTitle" equal to "LOGIN" or "SIGN UP". Edit "sendFormData" function for extra form titles.')
         }
     }
 
