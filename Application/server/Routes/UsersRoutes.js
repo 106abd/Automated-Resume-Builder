@@ -17,7 +17,7 @@ router.post('/', async(request, response) => {
 
     try {
         console.log(request.body)
-        response.json('Users Debug')
+        response.json('/Users Debug')
         console.log('----------------------------')
         console.log('----------------------------')
     } catch (error) {
