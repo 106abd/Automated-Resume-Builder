@@ -5,8 +5,8 @@ import CustomBackground from '../Components/CustomBackground'
 import Navbar from '../Components/Navbar'
 
 
-const checkAuthStatus = (authToken, pageRedirect) => {
-    if (authToken !== '') {
+const checkAuthStatus = (authStatus, pageRedirect) => {
+    if (authStatus) {
         pageRedirect('/builder')
     }
 }
@@ -28,20 +28,20 @@ const serverConnectionDebug = async() => {
 }
 
 
-function Login({authToken, setAuthToken}) {
+function Login({authStatus, setAuthStatus}) {
 
     const pageRedirect = useNavigate()
 
     useEffect(() => {
         serverConnectionDebug()
-        checkAuthStatus(authToken, pageRedirect)
-    }, [])
+        checkAuthStatus(authStatus, pageRedirect)
+    }, [authStatus])
 
     return (
         <div>
             <CustomBackground />
-            <Navbar lastChildAction={"Sign Up"} lastChildPath={'/signup'}/>
-            <CredentialsForm formTitle={"LOGIN"} authToken={authToken} setAuthToken={setAuthToken}/>
+            <Navbar lastChild={"Sign Up"} lastChildPath={'/signup'}/>
+            <CredentialsForm formTitle={"LOGIN"} setAuthStatus={setAuthStatus}/>
         </div>
     )
 }

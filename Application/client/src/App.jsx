@@ -8,15 +8,15 @@ import Builder from './Pages/Builder'
 
 function App() {
 
-  const [authToken, setAuthToken] = useState('')
+  const [authStatus, setAuthStatus] = useState(false)
 
   return (
     <>
       <HashRouter>
         <Routes>
-          <Route exact path='/' element={<Login authToken={authToken} setAuthToken={setAuthToken}/>}/>
+          <Route exact path='/' element={<Login authStatus={authStatus} setAuthStatus={setAuthStatus}/>}/>
           <Route exact path='/signup' element={<SignUp />}/>
-          <Route exact path='/builder' element={<Builder authToken={authToken} setAuthToken={setAuthToken}/>}/>
+          <Route exact path='/builder' element={<Builder setAuthStatus={setAuthStatus}/>}/>
         </Routes>
       </HashRouter>
       

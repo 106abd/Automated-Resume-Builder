@@ -55,8 +55,16 @@ router.post('/login', validifyData, async(request, response) => {
                 // Obtaining the user's ID and generating a JWT auth token with it 
                 const userID = userData.rows[0].user_id
                 const authToken = generateJWT(userID)
+                
+                // Store authToken in HttpOnlyCookie (so client cannot access it with JavaScript)
+                response.cookie('authToken', authToken, {
+                    httpOnly: true,  // Prevents client-side JavaScript access
+                    secure: true,  // Ensures it’s only sent over HTTPS
+                    sameSite: 'Strict',  // Prevents CSRF attacks
+                    maxAge: 60 * 60 * 1000  // 1 Day Expiry
+                })
 
-                response.status(200).json({message: 'Login Successful.', token: authToken})
+                response.status(200).json({message: 'Login Successful.'})
 
             } else {
                 response.status(401).json({message: 'Invalid password. Please try again.'})
@@ -72,7 +80,26 @@ router.post('/login', validifyData, async(request, response) => {
         console.log('--------------------------')
 
     } catch (error) {
-        console.log(error)
+        console.log(error.message)
+        response.status(500).json({message: 'Server error.'})
+    }
+})
+
+
+router.post('/logout', async(request, response) => {
+    try {
+
+        // Clear the authToken cookie (cookie details listed because it requires an exact settings match to delete)
+        response.clearCookie('authToken', {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'Strict'
+        })
+
+        response.status(200).json({message: 'Logout Successful.'})
+
+    } catch (error) {
+        console.log(error.message)
         response.status(500).json({message: 'Server error.'})
     }
 })

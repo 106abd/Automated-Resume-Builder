@@ -18,7 +18,7 @@ const reducer = (state, action) => {
 }
 
 
-function CredentialsForm({formTitle, authToken, setAuthToken}) {
+function CredentialsForm({formTitle, setAuthStatus}) {
 
     // Initialize hooks
     const focusInput = useRef(null) // For focusing on DOM
@@ -48,7 +48,6 @@ function CredentialsForm({formTitle, authToken, setAuthToken}) {
         if (requestRoute) {
         
             try {
-                console.log('Works')
                 console.log(formData)
         
                 const serverResponse = await fetch(`${import.meta.env.VITE_SERVER_API_ADDRESS}${requestRoute}`,{
@@ -61,11 +60,9 @@ function CredentialsForm({formTitle, authToken, setAuthToken}) {
                 console.log(jsonData)
     
                 if (serverResponse.ok) {
-
-                    if (jsonData.token) {
-                        setAuthToken(jsonData.token)
-                    }
-
+                    
+                    setAuthStatus(true)
+                    
                     const {action, args} = formTitleData[formTitle]
                     action(...args)
 
