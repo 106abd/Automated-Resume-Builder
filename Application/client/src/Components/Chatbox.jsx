@@ -43,11 +43,44 @@ function Chatbox() {
             event.preventDefault()
 
             if (userTextInput.trim()) {
+                
                 dispatch({type: 'ADD_CHAT_LOG', value: {id: 'user', message: userTextInput}})
+
+                sendUserPrompt()
                 setUserTextInput('')
                 console.log(chatHistory)
             }
         }
+    }
+
+
+    //  ------------------------ FUNCTIONS --------------------------
+    const sendUserPrompt = async() => {
+        
+        const requestRoute = '/chat'
+        
+            try {
+                console.log(userTextInput)
+        
+                const serverResponse = await fetch(`${import.meta.env.VITE_SERVER_API_ADDRESS}${requestRoute}`,{
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({userPrompt: userTextInput})
+                })
+    
+                if (serverResponse.ok) {
+
+                    const jsonData = await serverResponse.json()
+                    console.log(jsonData)
+                    dispatch({type: 'ADD_CHAT_LOG', value: {id: 'system', message: jsonData.message}})
+
+                } else {
+                    console.error(`Server Error Logged Status Code: ${serverResponse.status}`)
+                }
+        
+            } catch (error) {
+                console.log(error.message)
+            }
     }
 
 

@@ -17,7 +17,7 @@ router.post('/', async(request, response) => {
 
     try {
         console.log(request.body)
-        response.json('/Users Debug')
+        response.json({message: '/Users Debug'})
         console.log('----------------------------')
         console.log('----------------------------')
     } catch (error) {
@@ -139,4 +139,4 @@ router.post('/signup', validifyData, async(request, response) => {
 })
 
 
-module.exports = router; // Exported so other files can use/reference the router instance
+module.exports = router // Exported so other files can use/reference the router instance

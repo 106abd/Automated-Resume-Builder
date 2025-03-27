@@ -2,6 +2,7 @@
 const cors = require('cors') // Cross-Origin Resource Sharing module
 const dotenv = require('dotenv') // Dotenv (.env) processing module
 const express = require('express') //Express.JS module
+const chatRoutes = require('./Routes/ChatRoutes')
 const debugRoutes = require('./Routes/DebugRoutes')
 const usersRoutes = require('./Routes/UsersRoutes')
 
@@ -17,6 +18,7 @@ app.use(express.json()) // Automate request body data stream chunk collection an
 
 
 // Middleware ENDPOINTS
+app.use('/chat', chatRoutes)
 app.use('/debug', debugRoutes)
 app.use('/users', usersRoutes)
 
