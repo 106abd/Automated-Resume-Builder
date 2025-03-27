@@ -1,4 +1,4 @@
-import React, {useReducer, useState} from 'react'
+import React, {useEffect, useReducer, useRef, useState} from 'react'
 
 const reducer = (state, action) => {
     switch(action.type) {
@@ -16,9 +16,26 @@ const reducer = (state, action) => {
 
 function Chatbox() {
 
-    const [chatHistory, dispatch] = useReducer(reducer, [{id: 'user', message: 'debug'}, {id: 'system', message: 'debug'}])
-    const chatLogs = chatHistory.map((chatLog, logIndex) => <div className='chatLog' id={chatLog.id} key={logIndex}>{chatLog.message}</div>) 
+    const [chatHistory, dispatch] = useReducer(reducer, [{id: 'user', message: 'debug'}, {id: 'system', message: 'debug'}]) 
     const [userTextInput, setUserTextInput] = useState('')
+    const focusInput = useRef(null)
+    const focusMessage = useRef(null)
+
+    const chatLogs = chatHistory.map((chatLog, logIndex) => <div className='chatLog' id={chatLog.id} key={logIndex}>{chatLog.message}</div>)
+
+    useEffect(() => {
+        // Focuses the currently referenced InputField
+        if (focusInput.current) {
+            focusInput.current.focus()
+        }
+    }, [])
+
+    useEffect(() => {
+        // Focuses the currently referenced InputField
+        if (focusMessage.current) {
+            focusMessage.current.scrollTo({top: focusMessage.current.scrollHeight, behavior: 'smooth'})
+        }
+    }, [chatHistory])
 
 
     const submissionHandler = (event) => {
@@ -33,15 +50,22 @@ function Chatbox() {
         }
     }
 
-    
+
     return (
         <div className='boxContainer' id='chatContainer'>
             
-            <div className='chatBox'>
+            <div className='chatBox' ref={focusMessage}>
                 {chatLogs}
             </div>
 
-            <textarea value={userTextInput} onChange={(event) => setUserTextInput(event.target.value)} onKeyDown={submissionHandler} className='userInput'></textarea>
+            <textarea 
+                value={userTextInput} 
+                onChange={(event) => setUserTextInput(event.target.value)} 
+                onKeyDown={submissionHandler} 
+                ref={focusInput} 
+                className='userInput' 
+            />
+            
         </div>
     )
 }

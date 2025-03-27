@@ -57,11 +57,11 @@
 
 .chatLog {
     width: auto;
+    word-wrap: break-word;
+    text-align: left;
     max-width: 85%;
     margin: 10px;
     padding: 10px;
-    word-wrap: break-word;
-
 }
 
 #system{
