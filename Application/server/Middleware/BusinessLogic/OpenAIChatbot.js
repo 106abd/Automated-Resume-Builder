@@ -1,5 +1,5 @@
-const dotenv = require('dotenv') // Dotenv (.env) processing module
-const openAI = require('openai')
+import dotenv from 'dotenv' // Dotenv (.env) processing module
+import openAI from 'openai'
 
 dotenv.config() // Automate dotenv configurations processing
 
@@ -53,4 +53,4 @@ chatbot.setUpChatbot()
 const chatbotReply = chatbot.generatePromptResponse("Can you repeat after me?")
 console.log(chatbotReply)
 
-module.exports = OpenAIChatbot
+export default OpenAIChatbot

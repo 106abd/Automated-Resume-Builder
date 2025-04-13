@@ -1,10 +1,10 @@
 // Module Imports
-const cors = require('cors') // Cross-Origin Resource Sharing module
-const dotenv = require('dotenv') // Dotenv (.env) processing module
-const express = require('express') //Express.JS module
-const chatRoutes = require('./Routes/ChatRoutes')
-const debugRoutes = require('./Routes/DebugRoutes')
-const usersRoutes = require('./Routes/UsersRoutes')
+import cors from 'cors' // Cross-Origin Resource Sharing module
+import dotenv from 'dotenv' // Dotenv (.env) processing module
+import express from 'express' //Express.JS module
+import chatRoutes from './Routes/ChatRoutes.js'
+import debugRoutes from './Routes/DebugRoutes.js'
+import usersRoutes from './Routes/UsersRoutes.js'
 
 
 // Initialization methods

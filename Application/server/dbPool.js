@@ -1,10 +1,11 @@
-const Pool = require('pg').Pool // Manages a pool of database connections, allowing efficient handling of multiple concurrent requests
-const dotenv = require('dotenv') // Dotenv (.env) processing module
+import postgres from 'pg' // Manages a pool of database connections, allowing efficient handling of multiple concurrent requests
+import dotenv from 'dotenv' // Dotenv (.env) processing module
 
 
 // Initialization methods
 dotenv.config() // Automate dotenv configurations processing
 
+const { Pool } = postgres
 
 // Creating the new pool instance
 const pool = new Pool({
@@ -15,4 +16,4 @@ const pool = new Pool({
     database: process.env.DB_NAME
 })
 
-module.exports = pool; // Exported so other files can use/reference the pool instance
+export default pool; // Exported so other files can use/reference the pool instance

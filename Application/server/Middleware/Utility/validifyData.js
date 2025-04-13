@@ -18,4 +18,4 @@ function validifyData(request, response, next) {
 
 }
 
-module.exports = validifyData
+export default validifyData

@@ -1,5 +1,5 @@
 // Module Imports
-const express = require('express') //Express.JS module
+import express from 'express' //Express.JS module
 
 // Create a router object instead of app
 const router = express.Router()
@@ -20,4 +20,4 @@ router.post('/', async(request, response) => {
 })
 
 
-module.exports = router // Exported so other files can use/reference the router instance
+export default router // Exported so other files can use/reference the router instance

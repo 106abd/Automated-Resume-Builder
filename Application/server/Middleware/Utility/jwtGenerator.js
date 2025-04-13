@@ -1,6 +1,6 @@
 // Module Imports
-const jwt = require('jsonwebtoken') //JSON Web Token auth module
-const dotenv = require('dotenv') // Dotenv (.env) processing module
+import jwt from 'jsonwebtoken' //JSON Web Token auth module
+import dotenv from 'dotenv' // Dotenv (.env) processing module
 
 // Initialization methods
 dotenv.config() // Automate dotenv configurations processing
@@ -20,4 +20,4 @@ function generateJWT(user_id) {
 }
 
 
-module.exports = generateJWT // Exported so other files can use the generateJWT function
+export default generateJWT // Exported so other files can use the generateJWT function
