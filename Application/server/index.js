@@ -28,3 +28,6 @@ const serverPort = process.env.SERVER_PORT
 app.listen(serverPort, () => {
     console.log(`Server is running on port ${serverPort}`)
 })
+
+// Dummy log statement
+console.log('This is a change in the es6-conversion branch')
