@@ -1,11 +1,10 @@
 // Module Imports
-const bcrypt = require('bcrypt')
-const express = require('express') //Express.JS module
-const authorizeUser = require('../Middleware/Auth/jwtAuthorization')
-const generateJWT = require('../Middleware/Utility/jwtGenerator')
-const pool = require('../dbPool') // Access the PostgreSQL 'Pool' object from dbPool.js
-const validifyData = require('../Middleware/Utility/validifyData')
-
+import bcrypt from 'bcrypt'
+import express from 'express' //Express.JS module
+import authorizeUser from '../Middleware/Auth/jwtAuthorization.js'
+import generateJWT from '../Middleware/Utility/jwtGenerator.js'
+import pool from '../dbPool.js' // Access the PostgreSQL 'Pool' object from dbPool.js
+import validifyData from '../Middleware/Utility/validifyData.js'
 
 
 // Create a router object instead of app
@@ -139,4 +138,4 @@ router.post('/signup', validifyData, async(request, response) => {
 })
 
 
-module.exports = router // Exported so other files can use/reference the router instance
+export default router // Exported so other files can use/reference the router instance

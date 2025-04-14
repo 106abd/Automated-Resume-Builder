@@ -1,7 +1,7 @@
-const assert = require("node:assert");
-const test = require("node:test");
+import assert from "node:assert"
+import test from "node:test"
 
-const OpenAIChatbot = require('../Middleware/BusinessLogic/OpenAiChatbot')
+import OpenAIChatbot from '../Middleware/BusinessLogic/OpenAIChatbot.js'
 
 test('Chatbot Initialization', () => {
     
