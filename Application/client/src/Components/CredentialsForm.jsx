@@ -61,7 +61,9 @@ function CredentialsForm({formTitle, setAuthStatus}) {
     
                 if (serverResponse.ok) {
                     
-                    setAuthStatus(true)
+                    if (setAuthStatus) {
+                        setAuthStatus(true)
+                    }
                     
                     const {action, args} = formTitleData[formTitle]
                     action(...args)
