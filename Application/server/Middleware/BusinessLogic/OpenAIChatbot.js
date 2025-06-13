@@ -5,6 +5,11 @@ dotenv.config() // Automate dotenv configurations processing
 
 class OpenAIChatbot { 
     constructor(systemRole, systemContent, apiKey, endpointURL, modelVersion) {
+        
+        if (!systemRole || !systemContent || !apiKey || !endpointURL || !modelVersion) {
+            throw new Error('All parameters (systemRole, systemContent, apiKey, endpointURL, modelVersion) are required for chatbot initialization.');
+        }
+
         this.systemRole = systemRole
         this.systemContent = systemContent
         
@@ -15,14 +20,14 @@ class OpenAIChatbot {
         this.openAIClient = null
     }
 
-    setUpChatbot() {
+    setupChatbot() {
         this.messageHistory = []
 
         if (this.systemRole && this.systemContent) {
             
             const configInfo = {apiKey: this.apiKey, baseURL: this.endpointURL}
             const systemInfo = {role: this.systemRole, content: this.systemContent}
-
+            
             this.openAIClient = new openAI(configInfo)
             this.messageHistory.push(systemInfo)
         }
@@ -39,12 +44,17 @@ class OpenAIChatbot {
                 top_p: 1.0,
                 max_tokens: 1000,
                 model: this.modelVersion
-        })
+            })
 
-        // console.log(promptResponseInfo.choices[0].message.content)
-        return promptResponseInfo.choices[0].message.content
+            const promptResponse = promptResponseInfo.choices[0].message
+            this.messageHistory.push(promptResponse)
+
+            return promptResponse.content
         
-        } catch (error) { console.log(error.message) }
+        } catch (error) { 
+            console.log(error.message)
+            return 'I am currently facing a chat connection error. Please try again another time.' 
+        }
     }
 }
 
