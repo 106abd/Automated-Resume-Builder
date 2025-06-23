@@ -15,18 +15,18 @@ const endpointURL = process.env.ENDPOINT_URL
 const modelVersion = process.env.MODEL_VERSION
 
 
-test.describe("OpenAIChatbot Initialization", () => {
-    test("Error thrown when no parameters are provided upon object creation", () => {
+test.describe('OpenAIChatbot Initialization', () => {
+    test('Error thrown when no parameters are provided upon object creation', () => {
         assert.throws(() => { new OpenAIChatbot() }, 
         /All parameters.*are required/i)
     })
 
-    test("Error thrown when missing parameters are provided upon object creation", () => {
+    test('Error thrown when missing parameters are provided upon object creation', () => {
         assert.throws(() => { new OpenAIChatbot(systemRole, systemContent, null, endpointURL, modelVersion) }, 
         /All parameters.*are required/i)
     })
 
-    test("Object created successfully when all parameters are filled", () => {
+    test('Object created successfully when all parameters are filled', () => {
         const chatbot = new OpenAIChatbot(systemRole, systemContent, apiKey, endpointURL, modelVersion)
 
         assert.strictEqual(chatbot.systemRole, systemRole)
@@ -38,7 +38,7 @@ test.describe("OpenAIChatbot Initialization", () => {
 })
 
 
-test.describe("OpenAIChatbot Setup", () => {
+test.describe('OpenAIChatbot Setup', () => {
     test('Message history has 1 entry upon successful chatbot setup (valid parameters and OpenAI API connectivity)', () => {
         const chatbot = new OpenAIChatbot(systemRole, systemContent, apiKey, endpointURL, modelVersion)
         chatbot.setupChatbot()
@@ -49,7 +49,7 @@ test.describe("OpenAIChatbot Setup", () => {
 })
 
 
-test.describe("OpenAIChatbot Generating Responses", () => {
+test.describe('OpenAIChatbot Generating Responses', () => {
     test('String response generated from chatbot object and appended to the message history', async () => {
         const chatbot = new OpenAIChatbot(systemRole, systemContent, apiKey, endpointURL, modelVersion)
         chatbot.setupChatbot()
@@ -73,7 +73,7 @@ test.describe("OpenAIChatbot Generating Responses", () => {
     })
 
 
-    test('Message History Maintenance', async () => {
+    test('String user responses and system API responses should be recorded as objects in the message history array', async () => {
         const chatbot = new OpenAIChatbot(systemRole, systemContent, apiKey, endpointURL, modelVersion);
         chatbot.setupChatbot()
 

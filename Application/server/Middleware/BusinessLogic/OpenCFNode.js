@@ -2,8 +2,8 @@ class Node {
 
     constructor(nodeConfig = {}) {
 
-        if (!nodeConfig.NodeName && !nodeConfig.TransitionTime) {
-            throw new Error ('Node must have the following properties: "NodeName" and "TransitionTime".')
+        if (!nodeConfig.NodeName || !nodeConfig.TransitionTime || typeof nodeConfig.NodeName !== 'string' || typeof nodeConfig.TransitionTime !== 'number') {
+            throw new Error ('Node must have the following properties: "NodeName" (string) and "TransitionTime" (number).')
         }
 
         Object.assign(this, nodeConfig)

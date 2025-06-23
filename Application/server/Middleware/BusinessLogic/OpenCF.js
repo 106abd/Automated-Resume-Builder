@@ -3,10 +3,12 @@ import Chatbot from './OpenAIChatbot.js'
 
 class OpenCF {
 
-    constructor(apiKey, endpointURL, modelVersion, outputFormat, processNodeFunction) {
-        this.apiKey = apiKey
-        this.endpointURL = endpointURL
-        this.modelVersion = modelVersion
+    constructor(outputFormat, processNodeFunction) {
+
+        if (!outputFormat || !processNodeFunction) {
+            throw new Error ('OpenCF object constructor must have the following properties: "outputFormat" and "processNodeFunction".')
+        }
+
         this.outputFormat = outputFormat
         this.processNodeFunction = processNodeFunction 
 
@@ -44,7 +46,7 @@ class OpenCF {
     }
 
     // Function that creates a chatbot object with the given parameters and registers it to the conversational flow chatbot registry.
-    createChatbot(chatbotName, systemRole, systemContent, apiKey = this.apiKey, endpointURL = this.endpointURL, modelVersion = this.modelVersion){
+    createChatbot(chatbotName, systemRole, systemContent, apiKey, endpointURL, modelVersion){
 
         const newChatbot = new Chatbot(systemRole, systemContent, apiKey, endpointURL, modelVersion)
         newChatbot.setUpChatbot() // Initializes OpenAI API connection
