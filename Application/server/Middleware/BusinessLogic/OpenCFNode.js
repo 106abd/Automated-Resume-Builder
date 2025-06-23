@@ -16,16 +16,6 @@ class Node {
         this.previousNode = null
 
     }
-
-    getDynamicPrompt() {
-        if (typeof this.dynamicPrompt === 'function') {
-            const dynamicPromptOutput = this.dynamicPrompt()
-            return dynamicPromptOutput
-        } else {
-            return null
-        }
-    }
-
 }
 
 export default Node

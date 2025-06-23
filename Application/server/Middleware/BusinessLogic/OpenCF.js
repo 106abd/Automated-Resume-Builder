@@ -163,3 +163,6 @@ class OpenCF {
         }
     }
 }
+
+
+export default OpenCF
